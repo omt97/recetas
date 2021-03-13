@@ -112,7 +112,7 @@ class _CardRecetasState extends State<CardRecetas> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
+            //crossAxisAlignment: CrossAxisAlignment.baseline,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(width: width*4.8/8, height:  width*1.65/8, color: Colors.transparent, 
