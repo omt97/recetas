@@ -1,9 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:mis_recetas/model/ingrediente_model.dart';
 import 'package:mis_recetas/model/receta_model.dart';
 
 class RecetaBloc{
+
+  static Size size;
 
   static final RecetaBloc _singleton = new RecetaBloc._internal();
 

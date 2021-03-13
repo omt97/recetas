@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mis_recetas/bloc/receta_bloc.dart';
 import 'package:mis_recetas/widgets/barra_buscadora.dart';
 import 'package:mis_recetas/widgets/card_recetas.dart';
 
@@ -10,10 +11,12 @@ class RecetasPage extends StatefulWidget {
 
 class _RecetasPageState extends State<RecetasPage> {
 
-  List<String> filtros = ['chino', 'sano', 'culo', 'pato', 'pincheuevon', 'fit', 'ketomina'];
+  List<String> filtros = [];
 
   @override
   Widget build(BuildContext context) {
+
+    RecetaBloc.size = MediaQuery.of(context).size;
 
     final _screenSize = MediaQuery.of(context).size;
 
@@ -118,7 +121,175 @@ class _RecetasPageState extends State<RecetasPage> {
 
   }
 
-  _getFilters() {
-    
+  Widget _getFilters() {
+    return StatefulBuilder(
+        builder: (BuildContext context, void Function(void Function()) setStat) {
+          return AlertDialog(
+            content: Container(
+            width: 300,
+            height: 300,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Checkbox(value: filtros.contains('patata'), onChanged: (val){
+                        if (val){
+                          setStat(() {
+                            setState(() {
+                              filtros.add('patata');
+                            });
+                            
+                          });
+                        }
+                        else{
+                          setStat(() {
+                            setState(() {
+                              filtros.remove('patata');
+                            });
+                          });
+                        }
+                      }),
+                      Text('patata')
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(value: filtros.contains('pedo'), onChanged: (val){
+                        if (val){
+                          setStat(() {
+                            setState(() {
+                              filtros.add('pedo');
+                            });
+                            
+                          });
+                        }
+                        else{
+                          setStat(() {
+                            setState(() {
+                              filtros.remove('pedo');
+                            });
+                          });
+                        }
+                      }),
+                      Text('pedo')
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(value: filtros.contains('culo'), onChanged: (val){
+                        if (val){
+                          setStat(() {
+                            setState(() {
+                              filtros.add('culo');
+                            });
+                            
+                          });
+                        }
+                        else{
+                          setStat(() {
+                            setState(() {
+                              filtros.remove('culo');
+                            });
+                          });
+                        }
+                      }),
+                      Text('culo')
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(value: filtros.contains('zapato'), onChanged: (val){
+                        if (val){
+                          setStat(() {
+                            setState(() {
+                              filtros.add('zapato');
+                            });
+                            
+                          });
+                        }
+                        else{
+                          setStat(() {
+                            setState(() {
+                              filtros.remove('zapato');
+                            });
+                          });
+                        }
+                      }),
+                      Text('zapato')
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(value: filtros.contains('ojete'), onChanged: (val){
+                        if (val){
+                          setStat(() {
+                            setState(() {
+                              filtros.add('ojete');
+                            });
+                            
+                          });
+                        }
+                        else{
+                          setStat(() {
+                            setState(() {
+                              filtros.remove('ojete');
+                            });
+                          });
+                        }
+                      }),
+                      Text('ojete')
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(value: filtros.contains('chuletis'), onChanged: (val){
+                        if (val){
+                          setStat(() {
+                            setState(() {
+                              filtros.add('chuletis');
+                            });
+                            
+                          });
+                        }
+                        else{
+                          setStat(() {
+                            setState(() {
+                              filtros.remove('chuletis');
+                            });
+                          });
+                        }
+                      }),
+                      Text('chuletis')
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(value: filtros.contains('jujuju'), onChanged: (val){
+                        if (val){
+                          setStat(() {
+                            setState(() {
+                              filtros.add('jujuju');
+                            });
+                            
+                          });
+                        }
+                        else{
+                          setStat(() {
+                            setState(() {
+                              filtros.remove('jujuju');
+                            });
+                          });
+                        }
+                      }),
+                      Text('jujuju')
+                    ],
+                  )
+                ],
+              ),),
+          ),
+        );
+      }
+    );
   }
 }

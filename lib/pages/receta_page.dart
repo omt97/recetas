@@ -13,6 +13,7 @@ class RecetaPage extends StatefulWidget {
 class _RecetaPageState extends State<RecetaPage> {
   PageController _controller;
 
+  List<String> filtros = ['asd', 'ere', 'ad', 'qwe'];
 
     @override
   void initState() {
@@ -81,12 +82,22 @@ class _RecetaPageState extends State<RecetaPage> {
                         ),
                       ]
                     ),
+                    SizedBox(height: _screenSize.height/8,),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: _rowFilter(),
+                        )
+                      ),
+                    ),
                     Container(
                       alignment: Alignment.topLeft,
                       color: Colors.transparent, 
                       width: 330,
                       //height: double.infinity,
-                      margin: EdgeInsets.symmetric(vertical: 100, horizontal: 25),
+                      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                       child: Column(
                         children: <Widget>[
                          Column(
@@ -200,6 +211,27 @@ class _RecetaPageState extends State<RecetaPage> {
     }
 
     return textIngr;
+
+  }
+
+  List<Widget> _rowFilter() {
+
+    List<Widget> butons = [];
+
+    for (int i = 0; i < filtros.length; ++i){
+      butons.add(new RaisedButton(
+              elevation: 0,
+              disabledElevation: 0,
+              highlightElevation: 0,
+              shape: StadiumBorder(),
+              color: Colors.blue[200],
+              onPressed: (){},
+              child: Text(filtros[i])
+            ),);
+      butons.add(SizedBox(width: 5.0));
+    }  
+
+    return butons;
 
   }
 }
